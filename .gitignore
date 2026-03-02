@@ -7,6 +7,7 @@
 *.dll
 *.so
 *.dylib
+mw-pending-error-ta
 
 # Test binary, built with `go test -c`
 *.test
@@ -17,16 +18,22 @@ coverage.*
 *.coverprofile
 profile.cov
 
-# Dependency directories (remove the comment below to include it)
+# Dependency directories
 # vendor/
 
 # Go workspace file
 go.work
 go.work.sum
 
-# env file
+# Environment
 .env
 
+# Old backup files
+*.bak
+
 # Editor/IDE
-# .idea/
-# .vscode/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
