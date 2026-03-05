@@ -21,6 +21,8 @@ type Config struct {
 	OdooLoginURL  string
 	OdooGetURL    string
 	OdooUpdateURL string
+	OdooEmail     string
+	OdooPassword  string
 	FileStoreURL  string
 	FileStoreURL1 string
 	WegilURL      string
@@ -45,6 +47,8 @@ func Load() (*Config, error) {
 		OdooLoginURL:  os.Getenv("ODOO_LOGIN_URL"),
 		OdooGetURL:    os.Getenv("ODOO_GET_URL"),
 		OdooUpdateURL: os.Getenv("ODOO_UPDATE_URL"),
+		OdooEmail:     os.Getenv("ODOO_EMAIL"),
+		OdooPassword:  os.Getenv("ODOO_PASSWORD"),
 		FileStoreURL:  os.Getenv("FILESTORE_URL"),
 		FileStoreURL1: os.Getenv("FILESTORE_FILE_URL"),
 		WegilURL:      os.Getenv("WA_WEGIL_URL"),

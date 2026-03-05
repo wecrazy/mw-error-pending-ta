@@ -40,7 +40,7 @@ func (h *Handler) ListReason(c fiber.Ctx) error {
 func (h *Handler) ReloadReason(c fiber.Ctx) error {
 	body := `{"jsonrpc":"2.0","params":{"model":"x_reason_code","fields":["x_name","x_company_id","x_reason_code"],"domain":[["x_active","=",1]],"order":"create_date asc"}}`
 
-	_, cookies, err := h.Odoo.Login("testmfjr@gmail.com", "Ma113060111!")
+	_, cookies, err := h.Odoo.Login(h.Cfg.OdooEmail, h.Cfg.OdooPassword)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "odoo not responding"})
 	}
