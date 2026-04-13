@@ -168,11 +168,11 @@ go run main.go
 
 ```mermaid
 flowchart LR
-       client[Client] --> fiber[Fiber v3<br/>HTTP Server]
+       client[Client] --> fiber["Fiber v3<br/>HTTP Server"]
        fiber --> handlers[Handlers]
-       handlers --> odoo[Odoo ERP<br/>(JSON-RPC)]
-       handlers --> mysql[MySQL<br/>Database]
-       handlers --> filestore[File Store<br/>Service]
+       handlers --> odoo["Odoo ERP<br/>JSON-RPC"]
+       handlers --> mysql["MySQL<br/>Database"]
+       handlers --> filestore["File Store<br/>Service"]
 ```
 
 ---
