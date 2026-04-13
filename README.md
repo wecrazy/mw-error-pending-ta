@@ -166,17 +166,13 @@ go run main.go
 
 ## 🏗️ Architecture
 
-```text
-┌──────────┐     ┌──────────────┐     ┌───────────┐
-│  Client  │────▶│  Fiber v3    │────▶│  Handlers │
-└──────────┘     │  HTTP Server │     └─────┬─────┘
-                 └──────────────┘           │
-                        ┌───────────────────┼───────────────────┐
-                        ▼                   ▼                   ▼
-                 ┌─────────────┐    ┌──────────────┐    ┌──────────────┐
-                 │  Odoo ERP   │    │    MySQL     │    │  File Store  │
-                 │  (JSON-RPC) │    │   Database   │    │   Service    │
-                 └─────────────┘    └──────────────┘    └──────────────┘
+```mermaid
+flowchart LR
+       client[Client] --> fiber[Fiber v3<br/>HTTP Server]
+       fiber --> handlers[Handlers]
+       handlers --> odoo[Odoo ERP<br/>(JSON-RPC)]
+       handlers --> mysql[MySQL<br/>Database]
+       handlers --> filestore[File Store<br/>Service]
 ```
 
 ---
