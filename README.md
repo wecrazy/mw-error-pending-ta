@@ -1,8 +1,9 @@
+<!-- markdownlint-disable MD033 MD041 -->
 <div align="center">
 
 # 🛠️ mw-pending-error-ta
 
-**Middleware for Technical Assistance Error & Pending Data**
+Middleware for Technical Assistance Error & Pending Data
 
 [![Go](https://img.shields.io/badge/Go-1.26+-00ADD8?style=flat-square&logo=go&logoColor=white)](https://go.dev)
 [![Fiber](https://img.shields.io/badge/Fiber-v3-00ACD7?style=flat-square&logo=go&logoColor=white)](https://gofiber.io)
@@ -13,12 +14,13 @@ Manages error & pending task data from technician field visits.
 Integrates with **Odoo ERP** and an internal **file store** service.
 
 </div>
+<!-- markdownlint-enable MD033 MD041 -->
 
 ---
 
 ## 📦 Project Structure
 
-```
+```text
 mw-pending-error-ta/
 │
 ├── main.go                    → Entry point & Fiber v3 route registration
@@ -57,7 +59,7 @@ mw-pending-error-ta/
 ## ⚙️ Requirements
 
 | Dependency | Version |
-|:-----------|:--------|
+| ---------- | ------- |
 | Go         | 1.26+   |
 | MySQL      | 5.7+    |
 | Odoo ERP   | —       |
@@ -118,55 +120,55 @@ go run main.go
 
 ### Data Tables
 
-| Method | Endpoint | Description |
-|:------:|:---------|:------------|
-| `GET` | `/here/tablePending` | List all pending tasks |
-| `GET` | `/here/tableError` | List all error tasks |
+| Method | Endpoint             | Description            |
+| ------ | -------------------- | ---------------------- |
+| `GET`  | `/here/tablePending` | List all pending tasks |
+| `GET`  | `/here/tableError`   | List all error tasks   |
 
 ### Task Operations
 
-| Method | Endpoint | Description |
-|:------:|:---------|:------------|
-| `POST` | `/here/postData` | Submit task data to Odoo |
-| `POST` | `/here/editData` | Edit task data *(multipart form)* |
-| `POST` | `/here/getData` | Read specific fields from `data.json` |
-| `POST` | `/here/checkData` | Check Odoo stage & clean up if Done |
-| `POST` | `/here/deleteData` | Delete task and all associated data |
+| Method | Endpoint           | Description                           |
+| ------ | ------------------ | ------------------------------------- |
+| `POST` | `/here/postData`   | Submit task data to Odoo              |
+| `POST` | `/here/editData`   | Edit task data *(multipart form)*     |
+| `POST` | `/here/getData`    | Read specific fields from `data.json` |
+| `POST` | `/here/checkData`  | Check Odoo stage & clean up if Done   |
+| `POST` | `/here/deleteData` | Delete task and all associated data   |
 
 ### External Service Ingestion
 
-| Method | Endpoint | Description |
-|:------:|:---------|:------------|
-| `POST` | `/here/insertDataError` | Insert error task from external service |
+| Method | Endpoint                  | Description                               |
+| ------ | ------------------------- | ----------------------------------------- |
+| `POST` | `/here/insertDataError`   | Insert error task from external service   |
 | `POST` | `/here/insertDataPending` | Insert pending task from external service |
 
 ### Reason Codes
 
-| Method | Endpoint | Description |
-|:------:|:---------|:------------|
-| `POST` | `/here/listReason` | List reason codes by company |
-| `GET` | `/here/reloadReason` | Sync reason codes from Odoo |
+| Method | Endpoint             | Description                  |
+| ------ | -------------------- | ---------------------------- |
+| `POST` | `/here/listReason`   | List reason codes by company |
+| `GET`  | `/here/reloadReason` | Sync reason codes from Odoo  |
 
 ### Reload / Sync
 
-| Method | Endpoint | Description |
-|:------:|:---------|:------------|
-| `GET` | `/here/reloadPending` | Remove pending tasks already in file store |
-| `GET` | `/here/reloadError` | Remove error tasks already in file store |
+| Method | Endpoint              | Description                                |
+| ------ | --------------------- | ------------------------------------------ |
+| `GET`  | `/here/reloadPending` | Remove pending tasks already in file store |
+| `GET`  | `/here/reloadError`   | Remove error tasks already in file store   |
 
 ### File Serving
 
-| Method | Endpoint | Description |
-|:------:|:---------|:------------|
-| `GET` | `/here/file/:id` | Serve a task image (`{taskID}@{filename}`) |
+| Method | Endpoint         | Description                                |
+| ------ | ---------------- | ------------------------------------------ |
+| `GET`  | `/here/file/:id` | Serve a task image (`{taskID}@{filename}`) |
 
 ---
 
 ## 🏗️ Architecture
 
-```
+```text
 ┌──────────┐     ┌──────────────┐     ┌───────────┐
-│  Client   │────▶│  Fiber v3    │────▶│  Handlers │
+│  Client  │────▶│  Fiber v3    │────▶│  Handlers │
 └──────────┘     │  HTTP Server │     └─────┬─────┘
                  └──────────────┘           │
                         ┌───────────────────┼───────────────────┐
@@ -179,6 +181,8 @@ go run main.go
 
 ---
 
+<!-- markdownlint-disable MD033 -->
 <div align="center">
-<sub>Built with ❤️ using Go & Fiber v3</sub>
+<sub>Built with ❤️ using Go & Fiber v3.</sub>
 </div>
+<!-- markdownlint-enable MD033 -->
